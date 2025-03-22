@@ -1,0 +1,46 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Sid": "DDCloudCostReadBucket",
+          "Effect": "Allow",
+          "Action": [
+              "s3:ListBucket"
+          ],
+          "Resource": "arn:aws:s3:::BUCKETNAME"
+      },
+      {
+          "Sid": "DDCloudCostGetBill",
+          "Effect": "Allow",
+          "Action": [
+              "s3:GetObject"
+          ],
+          "Resource": "arn:aws:s3:::BUCKETNAME/REPORT_PREFIX/REPORT_NAME/*"
+      },
+      {
+          "Sid": "DDCloudCostCheckAccuracy",
+          "Effect": "Allow",
+          "Action": [
+              "ce:Get*"
+          ],
+          "Resource": "*"
+      },
+      {
+          "Sid": "DDCloudCostListCURs",
+          "Action": [
+              "cur:DescribeReportDefinitions"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+      },
+      {
+          "Sid": "DDCloudCostListOrganizations",
+          "Action": [
+              "organizations:Describe*",
+              "organizations:List*"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+      }
+  ]
+}
